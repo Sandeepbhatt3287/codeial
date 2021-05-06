@@ -16,7 +16,7 @@ module.exports.signUp=function(req,res){
 
 //render the sign in page
 
-module.exports.signUp=function(req,res){
+module.exports.signIn=function(req,res){
     return res.render('user_sign_in',{
         title : "Codeial | Sign In"
     })
