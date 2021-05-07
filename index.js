@@ -8,6 +8,11 @@ const expressLayouts = require('express-ejs-layouts');
 
 const db =require('./config/mongoose');
 
+app.use(express.urlencoded());
+
+//setting up the cookie Parser
+app.use(cookieParser());
+
 app.use(express.static('./assets'));
 
 // defining what is layouts
