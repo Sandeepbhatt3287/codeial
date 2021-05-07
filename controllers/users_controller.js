@@ -3,10 +3,27 @@ const User = require('../models/user');
 const { user } = require("../config/mongoose");
 
 module.exports.profile = function(req,res){
-    return res.render('user_profile',{
-        title: "User profile"
 
-    });
+    // checking user id is present or not
+    if (req.cookies.user_id){
+
+        User.findById(req.cookies.user_id, function(err,user){
+            if(user){
+                    return res.render('user_profile',{
+                        title: "User Profile",
+                        user : user
+                    })
+            }
+            return res.direct('/user/sign-in');
+        })
+    }else{
+        return res.redirect('/users/sign-in');
+    }
+
+    // return res.render('user_profile',{
+    //     title: "User profile"
+
+    // });
     // return res.end('<h1>User Profile</h1>');
 }
 
@@ -70,7 +87,7 @@ module.exports.createSession = function(req,res){
                }
               // handle sesson creation
               res.cookie('user_id',user.id);
-              
+
               return res.redirect('/users/profile');
 
         }else{
