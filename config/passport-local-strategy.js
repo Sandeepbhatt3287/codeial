@@ -1,10 +1,10 @@
-const passsport = require ('passport');
+const passport = require ('passport');
 const LocalStrategy = require ('passport-local').Strategy;
 
 const User =require('../models/user');
 
 //authentication using passport 
-passport.use(new LocalStrategy({
+ passport.use(new LocalStrategy({
     usernameField : 'email'
 },
 function(email, password, done){
@@ -16,9 +16,9 @@ function(email, password, done){
         }
         if (!user || user.password != password){
             console.log('Invalid Username/Password');
-            return done(null,false);
+            return done(null, false);
         }
-        return done(null,user);
+        return done(null, user);
     });
 
 }
@@ -40,4 +40,4 @@ passport.deserializeUser(function(id,done){
     });
 });
 
-module.exports =passport;
+module.exports = passport;
