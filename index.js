@@ -8,6 +8,16 @@ const expressLayouts = require('express-ejs-layouts');
 
 const db =require('./config/mongoose');
 
+//including express session and used for session cookie
+const session = require('express-session');
+
+// including  authentication passport 
+const passport = require('passport');
+const passpostLocal = require('./config/passport-local-strategy');
+
+
+
+
 app.use(express.urlencoded());
 
 //setting up the cookie Parser
