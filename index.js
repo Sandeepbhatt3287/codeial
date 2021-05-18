@@ -41,6 +41,22 @@ app.set('view engine','ejs');
 
 app.set('views','./views');
 
+
+// adding middleware express-session
+app.use(session({
+    name:'codeial',
+    // TODO change the secret before deployment in production mode
+    secret:'something',
+    saveUninitialized:false,
+    resave:false,
+    cookie:{
+        maxAge:(1000*60*100)
+    }
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.listen(port, function(err){
     if (err){
         // we are using backticks(``) for interpolation
