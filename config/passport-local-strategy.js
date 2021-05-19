@@ -61,5 +61,6 @@ passport.setAuthenticatedUser = function(req,res,next){
         // and we are just sending this to the locals for the views 
         res.locals.user = req.user;
     }
+    next();
 }
 module.exports = passport;
