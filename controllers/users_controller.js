@@ -72,7 +72,7 @@ module.exports.create = function(req,res){
 
 // sing in and create a session for the user
 module.exports.createSession = function(req,res){
-    // // steps to authenticate
+    // // steps to authenticate(using manual Authentication)
     // // find he user
     // User.findOne({email: req.body.email},function(err,user){
     //     if(err){
@@ -85,7 +85,7 @@ module.exports.createSession = function(req,res){
     //            if(user.password != req.body.password){
     //                return res.redirect('back');
     //            }
-    //           // handle sesson creation
+aadfd//           // handle sesson creation
     //           res.cookie('user_id',user.id);
 
     //           return res.redirect('/users/profile');
@@ -97,6 +97,6 @@ module.exports.createSession = function(req,res){
     // });
 
 
-    //    using passport js for authentication
+    //    using passport js for authentication(using Passport js)
     return res.redirect('/'); 
 }
