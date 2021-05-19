@@ -28,7 +28,7 @@ app.use(express.static('./assets'));
 // defining what is layouts
 app.use(expressLayouts);
 
-//extract style and scripts fro sub pages into the layout
+//extract style and scripts from sub pages into the layout
 app.set('layout extractStyles',true);
 app.set('layout extractScripts',true);
 
