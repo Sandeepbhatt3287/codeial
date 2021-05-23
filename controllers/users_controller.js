@@ -30,7 +30,7 @@ module.exports.profile = function(req,res){
 
 //render the sign up page
 module.exports.signUp=function(req,res){
-
+``
     if(req.isAuthenticated()){
         return res.redirect('/users/profile');
     }
